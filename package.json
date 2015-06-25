@@ -1,13 +1,13 @@
 {
-  "name": "gulp-chmod",
-  "version": "1.2.0",
-  "description": "Change permissions of Vinyl files",
+  "name": "gulp-chflags",
+  "version": "0.1.0",
+  "description": "Change flags of Vinyl files",
   "license": "MIT",
-  "repository": "sindresorhus/gulp-chmod",
+  "repository": "affirmix/gulp-chflags",
   "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "http://sindresorhus.com"
+    "name": "Andrew Odri",
+    "email": "andrew@affirmix.com",
+    "url": "http://affirmix.com"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -20,7 +20,7 @@
   ],
   "keywords": [
     "gulpplugin",
-    "chmod",
+    "chflags",
     "stat",
     "file",
     "vinyl",
