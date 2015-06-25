@@ -95,3 +95,7 @@ gulp.task('default', function () {
 		.pipe(gulp.dest('dist'));
 });
 ```
+
+## Attribution
+
+Credit goes to [Sindre Sorhus](https://github.com/sindresorhus) for providing an excellent template for this project by means of [gulp-chmod](https://github.com/sindresorhus/gulp-chmod) and [gulp-chown](https://github.com/sindresorhus/gulp-chown).
