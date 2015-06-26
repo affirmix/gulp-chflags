@@ -29,49 +29,56 @@ var chmod = require('gulp-chflags');
 
 gulp.task('default', function () {
 	return gulp.src('src/app.js')
-		.pipe(chflags({
-			uchg: true,
-			uunlnk: true
-		}))
+		.pipe(chflags([
+			'uchg',
+			'uunlnk'
+		]))
 		.pipe(gulp.dest('dist'));
 });
 ```
 
 ## API
 
-### chflags(mode)
+### chflags(flags)
 
-#### mode
+#### flags
 
-Type: `number`, `object`
+Type: `number`, `array`
 
-Can either be a [chflags](http://ss64.com/osx/chflags.html) octal number or an object with the individual flags specified.
+Can either be a [chflags](http://ss64.com/osx/chflags.html) octal number or an array with the individual flags specified.
 
 Values depends on the current file, but these are the possible keys:
 
 ```js
 {
-	hidden: true,
-	opaque: true,
-	nodump: true,
-	uappnd: true,
-	uappend: true,
-	uchg: true,
-	uchange: true,
-	uimmutable: true,
-	uunlnk: true,
-	uunlink: true,
-	arch: true,
-	archived: true,
-	sappnd: true,
-	sappend: true,
-	schg: true,
-	schange: true,
-	simmutable: true,
-	sunlnk: true,
-	sunlink: true
+	'hidden',
+	'opaque',
+	'nodump',
+	'uappnd',
+	'uappend',
+	'uchg',
+	'uchange',
+	'uimmutable',
+	'uunlnk',
+	'uunlink',
+	'arch',
+	'archived',
+	'sappnd',
+	'sappend',
+	'schg',
+	'schange',
+	'simmutable',
+	'sunlnk',
+	'sunlink'
 }
 ```
+
+Putting the letters no before an option causes the flag to be turned off. For example:
+
+* `'uchg'`: Means the file cannot be changed
+* `'nouchg'`: Means the file can be changed (immutable bit cleared)
+* `'hidden'`: Will set the hidden flag
+* `'nohidden'`: Will remove the hidden flag
 
 ## Tip
 
@@ -89,7 +96,7 @@ gulp.task('default', function () {
 		// filter a subset of the files
 		.pipe(filter)
 		// make them immutable
-		.pipe(chflags({ uchg: true }))
+		.pipe(chflags(['uchg']))
 		// bring back the previously filtered out files
 		.pipe(filter.restore())
 		.pipe(gulp.dest('dist'));
